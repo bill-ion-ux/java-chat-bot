@@ -1,4 +1,4 @@
-# Java Chat Bot
+# Java Chat Application
 
 A Java-based client-server chat application with GUI support, multi-user communication, and real-time message broadcasting. This project is designed to demonstrate strong object-oriented programming (OOP) principles, networking concepts, and client-server architecture.
 
