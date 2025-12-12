@@ -12,11 +12,8 @@ public class Server {
             ServerSocket serverSocket;
             serverSocket = new ServerSocket(PORT);// bind itself to the local address and port number
             System.out.println("Connection is establishing......");
-            int i = 1;
             while(true){
                 Socket connectSocket = serverSocket.accept();// accept a request from client
-                System.out.println(i);
-
                 //read a request from connectSocket
                 //@getInputStream is used to receive a raw bytes of data from the client
                 //@InputStreamReader wraps the raw bytes and converts it to character
@@ -27,10 +24,9 @@ public class Server {
                 }
                 System.out.println(message + " received from client");
                 BufferedWriter toClient = new BufferedWriter(new OutputStreamWriter(connectSocket.getOutputStream()));
-                toClient.write("connection is established with the server\n");
+                toClient.write("[server]: connection is established with the server\n");
                 toClient.flush();
-                connectSocket.close();
-                i++;
+                new Thread(new ClientHandler(connectSocket));
             }
 
         }catch(IOException e){
