@@ -18,7 +18,7 @@ public class ReadFromServer implements Runnable{
             do {
                 BufferedReader inServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 message = inServer.readLine();
-                System.out.println("server: " + message);
+                System.out.println("client: " + message);
                 if(message.equals("close")){
                     break;
                 }

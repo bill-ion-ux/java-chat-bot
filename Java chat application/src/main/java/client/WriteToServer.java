@@ -15,7 +15,7 @@ public class WriteToServer implements Runnable {
             while (true){
                 BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
                 BufferedWriter outputServer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-                System.out.print("client : ");
+                System.out.print("you: ");
                 String message = userInput.readLine();
                 outputServer.write(message);
 
