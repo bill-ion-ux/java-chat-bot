@@ -11,8 +11,8 @@ public class Client {
         try {
             Socket clietSocket = new Socket("localhost", PORT);// connect to the server according to the server port
             System.out.println("connecting to the server...");
-            new Thread(new ReadFromServer(clietSocket)).start();
             new Thread(new WriteToServer(clietSocket)).start();
+            new Thread(new ReadFromServer(clietSocket)).start();
 
         } catch (IOException e) {
             throw new RuntimeException(e);
