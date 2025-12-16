@@ -10,19 +10,19 @@ public class Server {
     public static void main(String[] args) {
         String[] userName = {"alice", "ali"};
         int i = 0;
-        try{
-            ServerSocket serverSocket;
+        try(ServerSocket serverSocket = new ServerSocket(PORT)){
             Vector<ClientHandler> clients = new Vector<>();
-            serverSocket = new ServerSocket(PORT);// bind itself to the local address and port number
+
             System.out.println("Connection is establishing......");
-            while(true){
+
+            while (i< userName.length) {
                 Socket connectSocket = serverSocket.accept();// accept a request from client
-                new Thread(new ClientHandler(connectSocket, clients,userName[i])).start();
+                new Thread(new ClientHandler(connectSocket, clients, userName[i])).start();
                 i++;
             }
 
-        }catch(IOException e){
-            e.getCause();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
