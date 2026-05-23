@@ -1,5 +1,7 @@
 # Java Multi-User Chat Application
 
+![Project Preview](resources/assets/test.png)
+
 A production-ready, multi-user Java chat application built with **Java 21**, **JavaFX**, and **Maven**. This project follows a clean, layered architecture and is designed for scalability and resilience.
 
 ## 🚀 Features
